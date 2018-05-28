@@ -23,25 +23,24 @@
 
     // Une requete HTTP a aussi une URL
     $path = $_SERVER['PATH_INFO'];
-
     // Ma variable $path = '/users/benjamin/'
     // Je vais utiliser le trim pour enlever les '/' en trop. En debut et fin de string
+
     $formatPath = trim($path, '/');
     // Ma variable $formatPath = 'users/benjamin'
     // Je veux pouvoir enlever aussi les '/' à l'interieur de la chaine de charactere.
     // Je vais pouvoir utiliser la methode explode
     // Elle me renvoie un tableau
+
     $arrayPath = explode('/', $formatPath);
     // $arrayPath = ['users', 'benjamin'];
+    // Je peux recuperer 'users'
+    // en cherchant $arrayPath[0]
 
-    
-    echo $arrayPath[0];
-
-
-    include 'database/connection.php';
+    $appRoot = __DIR__;
 
     // Je peux utiliser une variable de mon URL pour include les fichiers correspondant a ceux chercher par mon utilisateur.
-    include 'controllers/'.$arrayPath[0].'.php';
+    include($appRoot.'/views/'.$arrayPath[0].'.php');
 
    ?>
 </body>
