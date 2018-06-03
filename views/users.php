@@ -5,7 +5,7 @@
 <div>
   <?php 
     foreach ($users as $user) {
-      echo $user['name'];
+      echo "- ".$user['name']."<br />";
     }
   ?>
 </div>
