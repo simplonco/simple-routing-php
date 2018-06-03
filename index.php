@@ -37,11 +37,16 @@
     // Je peux recuperer 'users'
     // en cherchant $arrayPath[0]
 
-    $appRoot = __DIR__;
-
     // Je peux utiliser une variable de mon URL pour include les fichiers correspondant a ceux chercher par mon utilisateur.
-    include($appRoot.'/views/'.$arrayPath[0].'.php');
+    $appRoot = __DIR__;
+    $route = $appRoot.'/views/'.$arrayPath[0].'.php';
 
+    if ( is_file($route) ) {
+      include $route;
+    }
+    else {
+      include $appRoot.'/views/404.php';
+    }
    ?>
 </body>
 </html>

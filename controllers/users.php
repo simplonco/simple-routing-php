@@ -1,10 +1,8 @@
 <?php
+  include $appRoot.'/database/connection.php';
 
-  echo 'hello';
-  $user = array(
-    'name'=> 'Benjamin',
-    'mail'=> 'benji@gmail.com'
-  );
-
-  echo $_POST["name"];
+  $sql = 'select * from users';
+  $query = $db->prepare($sql);
+  $query->execute();
+  $users = $query->fetchAll();
 ?>
